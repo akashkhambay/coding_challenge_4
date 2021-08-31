@@ -46,7 +46,6 @@ def page_redirect(id):
         old_id = f'{old_id[0]}' #Needed to add a formatted string since sqlite was complaining about an integer...
         data = con.execute('SELECT old_url FROM urls WHERE id = ?', (old_id)).fetchone()
         old_url = data['old_url']
-    
 
         con.commit()
         con.close()
@@ -55,4 +54,5 @@ def page_redirect(id):
         flash('This URL is sad, it is not valid.')
         return redirect (url_for('home'))                 
 
-        
+if __name__ == "__main__":
+    app.run(debug=True)
