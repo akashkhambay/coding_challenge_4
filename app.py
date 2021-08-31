@@ -1,6 +1,6 @@
 import sqlite3
 from hashids import Hashids
-from flask import Flask, render_tenplate, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'futureproof10daystogo'
@@ -34,7 +34,7 @@ def home():
         hashid = hashids.encode(url_id)
         shorterned_url = request.host_url + hashid
 
-        return render_tempplate('home.html', shorterned_url=shorterned_url)
+        return render_template('home.html', shorterned_url=shorterned_url)
 
     return render_template('home.html')        
 
