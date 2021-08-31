@@ -41,17 +41,12 @@ def home():
 @app.route('/<id>')
 def page_redirect(id):
     con = get_db_con()
-    print(id)
     old_id = hashids.decode(id)
-    print(old_id)
     if old_id:
-        old_id = f'{old_id[0]}'
-        print(old_id)
-        data = con.execute('SELECT old_url, clicks FROM urls WHERE id = ?', (old_id)).fetchone()
+        old_id = f'{old_id[0]}' #Needed to add a formatted string since sqlite was complaining about an integer...
+        data = con.execute('SELECT old_url FROM urls WHERE id = ?', (old_id)).fetchone()
         old_url = data['old_url']
-        clicks = data['clicks']
-
-        con.execute('UPDATE urls SET clicks = ? WHERE id = ?', (clicks+1, old_id))
+    
 
         con.commit()
         con.close()
