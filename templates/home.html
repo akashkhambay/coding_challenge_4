@@ -17,7 +17,7 @@
 
     {% if shorterned_url %}
     <hr>
-    <span>{{ shorterned_url }}</span> 
+    <a href={{shorterned_url}} target="_blank"><button class="btn btn-dark">{{ shorterned_url }}</button></a> 
     <!-- IF shortened url exists will be shown under the form in a span element -->
     {% endif %}
 {% endblock %}
