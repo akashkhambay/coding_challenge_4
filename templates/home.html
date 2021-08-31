@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to URL Shortener!!!  {% endblock %}</h1>
+    <form method="post">
+    <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" name="url"
+               placeholder="Provide URL here" class="form-control"
+               value="{{ request.form['url'] }}" autofocus></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+
+    {% if shorterned_url %}
+    <hr>
+    <span>{{ shorterned_url }}</span> 
+    <!-- IF shortened url exists will be shown under the form in a span element -->
+    {% endif %}
+{% endblock %}

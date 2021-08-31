@@ -24,7 +24,7 @@ def home():
             flash('PLease provide the URL')
             return redirect(url_for('home'))
 
-        old_url = con.execute('INSERT INTO urls (original_url) VALUES (?)',
+        old_url = con.execute('INSERT INTO urls (old_url) VALUES (?)',
                                 (url,))
 
         con.commit()
@@ -36,6 +36,28 @@ def home():
 
         return render_template('home.html', shorterned_url=shorterned_url)
 
-    return render_template('home.html')        
+    return render_template('home.html')
+
+@app.route('/<id>')
+def page_redirect(id):
+    con = get_db_con()
+    print(id)
+    old_id = hashids.decode(id)
+    print(old_id)
+    if old_id:
+        old_id = f'{old_id[0]}'
+        print(old_id)
+        data = con.execute('SELECT old_url, clicks FROM urls WHERE id = ?', (old_id)).fetchone()
+        old_url = data['old_url']
+        clicks = data['clicks']
+
+        con.execute('UPDATE urls SET clicks = ? WHERE id = ?', (clicks+1, old_id))
+
+        con.commit()
+        con.close()
+        return redirect (old_url)
+    else:
+        flash('This URL is sad, it is not valid.')
+        return redirect (url_for('home'))                 
 
         
