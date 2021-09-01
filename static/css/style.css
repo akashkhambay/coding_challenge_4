@@ -37,13 +37,13 @@ input:focus {
 .btn {
   border-radius: 10px !important;
   box-shadow: 4px 4px 4px black;
-  transition: box-shadow 1s, transform 1s;
+  transition: box-shadow 0.5s, transform 0.5s;
   transform: initial;
 }
 
 .btn:hover {
   box-shadow: initial;
-  transition: box-shadow 1s, transform 1s;
+  transition: box-shadow 0.5s, transform 0.5s;
   transform: scale(1.1,1.1);
 }
 

@@ -18,7 +18,7 @@
     {% if shorterned_url %}
     <hr>
     <a href={{shorterned_url}} target="_blank"><button class="btn btn-dark">{{ shorterned_url }}</button></a> 
-    <button id="copy" class="btn btn-dark">Copy To Clipboard</button>
+    <button id="copy" class="btn btn-dark"><i class="far fa-clipboard"></i> Copy</button>
     <input type="hidden" id="shortURL" name="shortURL" value={{shorterned_url}}>
     <!-- IF shortened url exists will be shown under the form in a span element -->
     {% endif %}
