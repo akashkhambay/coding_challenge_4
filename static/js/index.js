@@ -1,5 +1,6 @@
 let copyBtn = document.getElementById('copy')
-copyBtn.addEventListener('click',function() {
+if (copyBtn) {
+  copyBtn.addEventListener('click',function() {
 
     var copyText = document.getElementById("shortURL");
 
@@ -8,4 +9,5 @@ copyBtn.addEventListener('click',function() {
       }, function() {
         alert("Failed to copy");
       });
-})
+  })
+}
