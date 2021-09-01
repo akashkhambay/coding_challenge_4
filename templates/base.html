@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+    />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -20,9 +24,17 @@
       href="{{ url_for('static', filename='css/style.css') }}"
     />
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
 
-    <script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script
+      defer
+      src="{{ url_for('static', filename='js/index.js') }}"
+    ></script>
 
     <title>{% block title %} {% endblock %}</title>
   </head>
