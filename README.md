@@ -21,7 +21,7 @@ Welcome to a webapp created by Polina, James and Akash. This is a one page websi
 - Open the directory with a text editor of your choice.
 - Create a virtual environment using `pipenv shell`
 - Install all the dependencies required using `pipenv install`
-- You have to run `python iniit_db.py` to intialise the database.
+- You have to run `python init_db.py` to intialise the database.
 
 ### Usage-
 
